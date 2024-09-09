@@ -9,10 +9,10 @@ public class InsSortInt {
     int i =0; 
     String[] arrString = new String[1000]; 
     try {
-        File file = new File("randints.txt"); 
+        File file = new File("randInts.txt"); 
         Scanner reader = new Scanner(file); 
      while (reader.hasNextLine()){
-        String num= reader.nextLine(); 
+        arrString[i]= reader.nextLine(); 
         i++; 
     } 
     }
@@ -23,12 +23,13 @@ public class InsSortInt {
         e.printStackTrace(); 
     }
     for(int j=0; j<1000; j++){
+        //System.out.println(arrString[j]); 
         arrInt[j]= Integer.parseInt(arrString[j]); 
 
     }
     for(i=0; i<1000; i++){
         int key =arrInt[i]; 
-        int j =i+1; 
+        int j =i-1; 
         while(j>=0&&arrInt[j]>key){
             arrInt[j+1]= arrInt[j]; 
             j=j-1; 
@@ -37,7 +38,7 @@ public class InsSortInt {
         arrInt[j+1]=key; 
 
     }
-    System.out.println("smallest is "+arrInt[0] + "largest is " +arrInt[1000]); 
+    System.out.println("smallest is "+arrInt[0] + "largest is " +arrInt[999]); 
  }
 }
 
